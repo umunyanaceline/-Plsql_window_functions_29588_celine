@@ -1,27 +1,35 @@
-![Ranking Functions](https://github.com/user-attachments/assets/05b18651-2ef2-4062-86fe-a1085396f3ac)# GlobalMart E-Commerce Analytics: SQL JOINs & Window Functions
-
 **Course:** INSY 8311 - Database Development with PL/SQL  
 **Student:** Umunyana Celine| 29588| Group A  
 **Instructor:** Eric Maniraguha  
 
----
-## Business Problem
-## Business Context
+
+ 
+**Business Problem**
+
+
+
+**Business Context**
+
 The organization is a national logistics and delivery company operating
 in the transport and supply chain industry.
 The analysis is conducted for the Operations and Performance
 Analytics Department.
-## Data Challenge
+
+**Data Challenge**
+ 
 The company handles thousands of package deliveries across multiple
 regions and drivers, but lacks clear insight into delivery performance,
 inactive drivers, unused delivery routes, and delivery trends over time.
 Management finds it difficult to identify top-performing routes, delayed
 deliveries, and changes in delivery volume across months.
-## Expected Outcome
+
+**Expected Outcome**
+
 The analysis aims to generate insights on delivery efficiency, driver
 activity, route utilization, and delivery trends, supporting better route
 planning, workforce management, and service optimization.
----
+
+
 Success Criteria
 
 The analysis will achieve exactly five measurable objectives:
@@ -32,10 +40,15 @@ The analysis will achieve exactly five measurable objectives:
 5. Compute three-month moving averages of deliveries using AVG()
 OVER()
 
+ENTITY RELATIONSHIP DIAGRAM 
+
+![WhatsApp Image 2026-02-08 at 17 45 48](https://github.com/user-attachments/assets/b85a5c33-31a0-474e-93d8-2856b618e5da)
+
+
 ### Tables
-1. **CUSTOMER** - Customer profiles and regional information
-2. **PRODUCT** - Product catalog with pricing and inventory
-3. **TRANSACTION** - Sales transactions linking customers and products
+1. **Drivers Table** 
+2. **Routes Table** 
+3. **Deliveries Table**
 
 ### AS follow : 
 
@@ -74,11 +87,11 @@ FOREIGN KEY (route_id)
 REFERENCES routes(route_id)
 );
 ```
-## Part A: SQL JOINs
+**Part A: SQL JOINs**
 
-## 🔗 SQL JOINs Implementation
+**SQL JOINs Implementation**
 
-### 1. INNER JOIN - Valid Transactions
+ **1. INNER JOIN - Valid Transactions**
 ```sql
  SELECT
 d.full_name,
@@ -148,9 +161,9 @@ AND a.driver_id <> b.driver_id;
 Business Interpretation:
 Allows comparison of driver workload during the same day
 
-## Window Functions Implementation
+Window Functions Implementation
 
-### Ranking Functions
+Ranking Functions
 - ROW_NUMBER(): Track purchase sequences
  ```sql
 SELECT    month,    route_id,    total_packages,    RANK() OVER (        PARTITION BY month        ORDER BY total_packages DESC    ) AS route_rank FROM (    SELECT        TO_CHAR(delivery_date, 'MM') AS month,        route_id,        SUM(packages_delivered) AS total_packages    FROM deliveries    GROUP BY        TO_CHAR(delivery_date, 'MM'),        route_id) t;
@@ -158,7 +171,7 @@ SELECT    month,    route_id,    total_packages,    RANK() OVER (        PARTITI
 ```
 <img ![Ranking Functions](https://github.com/user-attachments/assets/4a46593d-dd9f-46cb-9a6d-bbaf67a8928d)
 
-### Aggregate Window Functions
+ Aggregate Window Functions
 - Running totals using SUM()
  ```sql
   SELECT
@@ -200,7 +213,7 @@ GROUP BY driver_id;
  ```
 <img ![Distribution Functions](https://github.com/user-attachments/assets/86668a84-d5e7-4949-a3c0-d49d41906fad)
 
-##  Result analysis
+Result analysis
 
 Descriptive Analysis
 Delivery volumes vary significantly by route and driver.
@@ -210,27 +223,27 @@ Prescriptive Analysis
 Reassign drivers, optimize routes, and reward top-performing drivers to
 improve overall performance.
 
----
 
-##  References
+
+ References
+ 
 ● PostgreSQL Window Functions Guide
 Oracle SQL Analytical Functions Documentation
-● W3Schools SQL JOINs
-● Supply Chain Analytics Resources
----
 
-## ✅ Academic Integrity Statement
+● W3Schools SQL JOINs
+
+● Supply Chain Analytics Resources
+
+
+Academic Integrity Statement
 
 All sources were properly cited. Implementations and analysis represent original work. No AI-generated content was copied without attribution or adaptation.
 
 **Signature:** Umunyana Celine
 
 
----
 
-**Email:**umunyanaceline77.com 
-
-**GitHub:** umunyanaceline.com/calebdsgn
+**Email:** umunyanaceline77@GMAIL.COM
 
 
 
