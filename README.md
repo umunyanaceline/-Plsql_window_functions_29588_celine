@@ -91,7 +91,7 @@ REFERENCES routes(route_id)
 
 **SQL JOINs Implementation**
 
- **1. INNER JOIN - Valid Transactions**
+ **1. INNER JOIN **
 ```sql
  SELECT
 d.full_name,
@@ -188,7 +188,7 @@ FROM deliveries;
 
 
 ### Navigation Functions
-- LAG(): Previous period comparison
+Use Case: Month-over-month delivery growth.
  ```sql
  SELECT
 delivery_date,
@@ -201,7 +201,7 @@ FROM deliveries;
 <img ![Navigation Functions](https://github.com/user-attachments/assets/69a27ae9-f3e9-495e-8501-6c62c9a625a7)
 
 ### Distribution Functions
-- NTILE(4): Customer quartile segmentation
+Use Case: Driver performance segmentation
  ```sql
 SELECT
 driver_id,
@@ -227,12 +227,12 @@ improve overall performance.
 
  References
  
-● PostgreSQL Window Functions Guide
+A. PostgreSQL Window Functions Guide
 Oracle SQL Analytical Functions Documentation
 
-● W3Schools SQL JOINs
+B. W3Schools SQL JOINs
 
-● Supply Chain Analytics Resources
+C. Supply Chain Analytics Resources
 
 
 Academic Integrity Statement
